@@ -1,0 +1,6 @@
+_plugin_AnywhereClient_web:
+    resource: "@AnywhereClientBundle/Resources/config/routing.yml"
+    prefix:   /
+_plugin_AnywhereClient_admin:
+    resource: "@AnywhereClientBundle/Resources/config/routing_admin.yml"
+    prefix:   /admin

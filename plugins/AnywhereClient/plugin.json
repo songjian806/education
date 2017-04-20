@@ -1,0 +1,9 @@
+{
+            "code": "AnywhereClient",
+            "name": "任我行客户端",
+            "description": "基于OAuth2.0实现各Edusoho的同一帐号登录,甚至任何一个拥有OAuth2.0接口的网站!",
+            "author": "ChinaLikely",
+            "version": "1.0.4",
+            "supprot_version": "4.8.0",
+            "manage_index": "anywhereclient_manage_index"
+        }

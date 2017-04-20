@@ -1,0 +1,56 @@
+{% extends 'TopxiaWebBundle::bootstrap-modal-layout.html.twig' %}
+
+{% set modalSize = 'large' %}
+
+{% block title %}添加新服务器{% endblock %}
+{% block body %}
+
+<form id="server-create-form" class="form-horizontal" method="POST" action="{{ path('admin_anywhere_client_add')}}">
+
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="serverName">服务器名称</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="serverName" name="serverName" class="form-control" >
+    </div>
+  </div>   
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="serverUrl">服务器网址</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="serverUrl" name="serverUrl" class="form-control" >
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="clientId">识别号</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="clientId" name="clientId" class="form-control" >
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="secretKey">密钥</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="secretKey" name="secretKey" class="form-control" >
+    </div>
+  </div>
+
+  <input type="hidden" name="_csrf_token" value="{{ csrf_token('site') }}">
+
+</form>
+{% endblock %}
+
+{% block footer %}
+  <button id="server-create-btn" data-submiting-text="正在提交" type="submit" class="btn btn-primary pull-right" data-toggle="form-submit" data-target="#server-create-form">提交</button>
+  <button type="button" class="btn btn-link pull-right" data-dismiss="modal">取消</button>
+  <script>app.load('anywhereclientbundle/add-modal')</script>
+{% endblock %}

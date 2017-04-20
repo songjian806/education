@@ -1,0 +1,72 @@
+{% extends 'TopxiaWebBundle::bootstrap-modal-layout.html.twig' %}
+
+{% set modalSize = 'large' %}
+
+{% block title %}编辑服务器信息{% endblock %}
+{% block body %}
+
+<form id="server-edit-form" class="form-horizontal" method="post" action="{{ url('admin_anywhere_client_edit', {id:server.id}) }}">
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="serverName">服务器名称</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="serverName" name="serverName" class="form-control" value="{{ server.serverName}}" >
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="serverUrl">服务器网址</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="serverUrl" name="serverUrl" class="form-control" value="{{ server.serverUrl }}" >
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="clientId">识别号</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="clientId" name="clientId" class="form-control" value="{{ server.clientId }}" >
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="secretKey">密钥</label>
+    </div>
+    <div class="col-md-7 controls">
+      <input type="text" id="secretKey" name="secretKey" class="form-control" value="{{ server.secretKey }}">
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-3 control-label">
+      <label for="locked">禁止登录</label>
+    </div>
+    <div class="col-md-7 controls radios">
+      <div>
+        <input type="radio" id="locked" name="locked" value="1"
+        {% if server.locked %} checked="checked" {% endif %}>
+        <label for="locked">是</label>
+
+        <input type="radio" id="notlocked" name="locked" value="0"
+        {% if not server.locked %} checked="checked" {% endif %}>
+        <label for="notlocked">否</label>
+      </div>
+
+    </div>
+  </div>
+
+   <input type="hidden" name="_csrf_token" value="{{ csrf_token('server') }}">
+</form>
+{% endblock %}
+
+{% block footer %}
+  <button id="server-edit-btn" data-submiting-text="正在提交" type="submit" class="btn btn-primary pull-right" data-toggle="form-submit" data-target="#server-edit-form">保存</button>
+  <button type="button" class="btn btn-link pull-right" data-dismiss="modal">取消</button>
+  <script>app.load('anywhereclientbundle/edit-modal')</script>
+{% endblock %}

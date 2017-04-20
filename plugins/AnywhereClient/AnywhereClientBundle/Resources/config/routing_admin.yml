@@ -1,0 +1,23 @@
+anywhereclient_manage_index:
+    path:       /anywhereclient/index
+    defaults:   { _controller: AnywhereClientBundle:Setting:index }
+
+admin_anywhere_client_show:
+    path:       /anywhereclient/setting/servers/{id}/show
+    defaults:   { _controller: AnywhereClientBundle:Setting:show }
+
+admin_anywhere_client_add:
+    path:       /anywhereclient/setting/servers/add
+    defaults:   { _controller: AnywhereClientBundle:Setting:add }
+
+admin_anywhere_client_edit: 
+    path:       /anywhereclient/setting/servers/{id}/edit
+    defaults:   { _controller: AnywhereClientBundle:Setting:edit }
+
+admin_anywhere_client_delete:
+    path:       /anywhereclient/setting/servers/{id}/delete
+    defaults:   { _controller: AnywhereClientBundle:Setting:delete }
+
+admin_anywhere_client_refresh:
+    path:       /anywhereclient/setting/refresh
+    defaults:   { _controller: AnywhereClientBundle:Setting:refresh }
